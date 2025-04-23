@@ -1,0 +1,147 @@
+:root {
+  --font-sans: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --color-primary: #213547;
+  --color-background: #ffffff;
+  --color-cloud: rgba(255, 255, 255, 0.95);
+  --shadow-cloud: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+@keyframes cloud-float {
+  0%, 100% {
+    transform: translateY(0) scale(1.2);
+  }
+  50% {
+    transform: translateY(-15px) scale(1.25);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-10px) scale(1.02);
+  }
+}
+
+@keyframes dots {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.cloud-container {
+  width: 80%;
+  height: 80%;
+  background-color: var(--color-cloud);
+  border-radius: 200px;
+  box-shadow: var(--shadow-cloud);
+  position: relative;
+  isolation: isolate;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.cloud-container::after {
+  content: '';
+  position: absolute;
+  inset: -40px;
+  background: var(--color-cloud);
+  z-index: 1;
+  border-radius: 50%;
+  box-shadow: 
+    120px 20px 40px var(--color-cloud),
+    -120px 20px 40px var(--color-cloud),
+    50px -20px 50px var(--color-cloud),
+    -50px -20px 50px var(--color-cloud),
+    50px 80px 50px var(--color-cloud),
+    -50px 80px 50px var(--color-cloud),
+    0 40px 60px var(--color-cloud),
+    0 0 80px var(--color-cloud);
+  filter: blur(3px);
+  pointer-events: none;
+  animation: cloud-float 6s ease-in-out infinite;
+}
+
+.thinking-dots {
+  display: flex;
+  gap: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.thinking-dot {
+  width: 24px;
+  height: 24px;
+  background-color: rgba(148, 163, 184, 1);
+  border-radius: 50%;
+}
+
+.text-body {
+  position: absolute;
+  background-color: rgba(33, 53, 71, 0.9);
+  padding: 8px 12px;
+  border-radius: 4px;
+  pointer-events: none;
+  white-space: nowrap;
+  font-size: 16px;
+  color: var(--color-background);
+  transform-origin: center center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 2;
+}
+
+.thinking-dot:nth-child(1) {
+  animation: dots 1.5s ease-in-out infinite;
+}
+
+.thinking-dot:nth-child(2) {
+  animation: dots 1.5s ease-in-out infinite 0.2s;
+}
+
+.thinking-dot:nth-child(3) {
+  animation: dots 1.5s ease-in-out infinite 0.4s;
+}
+
+canvas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: transparent;
+  z-index: 1;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background: 
+    linear-gradient(135deg, #e7f0fd 0%, #accbee 100%),
+    repeating-linear-gradient(45deg, 
+      rgba(255,255,255,0.1) 0px,
+      rgba(255,255,255,0.1) 20px,
+      transparent 20px,
+      transparent 40px
+    );
+}
+
+#app {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}

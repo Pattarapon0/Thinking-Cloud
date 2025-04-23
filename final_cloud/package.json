@@ -1,0 +1,31 @@
+{
+  "name": "final_cloud",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "homepage": "https://pattarapon0.github.io/cloud_final/",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "server": "node ../signaling-server/start.sh",
+    "start": "concurrently \"npm run server\" \"npm run dev\"",
+    "deploy": "gh-pages -d dist"
+  },
+  "devDependencies": {
+    "@types/matter-js": "^0.19.8",
+    "concurrently": "^8.2.2",
+    "gh-pages": "^6.3.0",
+    "typescript": "^5.8.2",
+    "vite": "^6.2.0"
+  },
+  "dependencies": {
+    "final_cloud": "file:",
+    "matter-js": "^0.20.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "packageManager": "pnpm@8.11.0"
+}

@@ -1,0 +1,28 @@
+{
+  "name": "signaling-server",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "WebRTC signaling server for cloud text",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "pnpm exec nodemon src/index.js",
+    "build": "pnpm exec tsc",
+    "clean": "rimraf dist"
+  },
+  "dependencies": {
+    "signaling-server": "file:",
+    "uWebSockets.js": "uNetworking/uWebSockets.js#v20.51.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.x",
+    "nodemon": "^3.x",
+    "rimraf": "^5.x",
+    "typescript": "^5.x"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "packageManager": "pnpm@8.11.0"
+}
