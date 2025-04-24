@@ -4,7 +4,7 @@ A lightweight signaling server for WebRTC peer connections, built with uWebSocke
 
 ## Requirements
 
-- Node.js >= 18.0.0
+- Node.js = ~22.0.0
 - pnpm >= 8.0.0 (or npm/yarn)
 - Docker (for AWS deployment)
 
